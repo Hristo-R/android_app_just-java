@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Просто Кафе</string>
+    <string name="name">Име</string>
+    <string name="toppings">Топинг</string>
+    <string name="cream">Сметана</string>
+    <string name="extra_sugar">Допълнителна захар</string>
+    <string name="quantity">Количество</string>
+</resources>
