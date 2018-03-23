@@ -1,9 +1,7 @@
 package com.example.maxsystem.justjava;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,17 +14,15 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String username;
-    private boolean hasCreamTopping = false;
-    private boolean hasExtraSugarTopping = false;
-    private int coffeeCount = 0;
-
     @BindView(R.id.btn_order) Button btnOrder;
     @BindView(R.id.edt_username) EditText edtUsername;
     @BindView(R.id.chbx_cream) CheckBox chbxCream;
     @BindView(R.id.chbx_sugar) CheckBox chbxSugar;
     @BindView(R.id.txt_coffee_count) TextView txtCoffeeCount;
-
+    private String username;
+    private boolean hasCreamTopping = false;
+    private boolean hasExtraSugarTopping = false;
+    private int coffeeCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         if (hasExtraSugarTopping) {
             orderText += "\nAlso add extra sugar";
         }
+
+        orderText += "\nThank You";
 
         Toast.makeText(MainActivity.this, orderText, Toast.LENGTH_LONG).show();
 
