@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_less)
     public void onLessClicked(){
         this.coffeeCount = Integer.parseInt(txtCoffeeCount.getText().toString());
-        coffeeCount--;
+        if (coffeeCount > 0) {
+            coffeeCount--;
+        }
         txtCoffeeCount.setText(String.valueOf(coffeeCount));
     }
 
@@ -57,19 +59,21 @@ public class MainActivity extends AppCompatActivity {
         this.hasExtraSugarTopping = chbxSugar.isChecked();
         this.coffeeCount = Integer.parseInt(txtCoffeeCount.getText().toString());
 
-        String orderText = "Hello from " + username + "\n Pleace get me " + coffeeCount + "caffees";
+        String orderText = "Hello from " + username + "\nPleace get me " + coffeeCount + " caffees";
         if (hasCreamTopping) {
-            orderText += "\n Also add cream";
+            orderText += "\nAlso add cream";
         }
         if (hasExtraSugarTopping) {
-            orderText += "\n Also add extra sugar";
+            orderText += "\nAlso add extra sugar";
         }
 
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setType("/*/");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, "coffee@gmail.com");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, orderText);
-        startActivity(emailIntent);
+        Toast.makeText(MainActivity.this, orderText, Toast.LENGTH_LONG).show();
+
+        //Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        //emailIntent.setType("/*/");
+        //emailIntent.putExtra(Intent.EXTRA_EMAIL, "coffee@gmail.com");
+        //emailIntent.putExtra(Intent.EXTRA_TEXT, orderText);
+        //startActivity(emailIntent);
 
     }
 
