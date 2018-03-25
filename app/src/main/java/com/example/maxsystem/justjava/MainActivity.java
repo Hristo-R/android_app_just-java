@@ -1,5 +1,6 @@
 package com.example.maxsystem.justjava;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -55,23 +56,23 @@ public class MainActivity extends AppCompatActivity {
         this.hasExtraSugarTopping = chbxSugar.isChecked();
         this.coffeeCount = Integer.parseInt(txtCoffeeCount.getText().toString());
 
-        String orderText = "Hello from " + username + "\nPleace get me " + coffeeCount + " caffees";
+        String orderText = "Hello from " + username + ".\nPlease get me " + coffeeCount + " coffee";
         if (hasCreamTopping) {
-            orderText += "\nAlso add cream";
+            orderText += "\nAlso add cream.";
         }
         if (hasExtraSugarTopping) {
-            orderText += "\nAlso add extra sugar";
+            orderText += "\nAlso add extra sugar.";
         }
 
         orderText += "\nThank You";
 
         Toast.makeText(MainActivity.this, orderText, Toast.LENGTH_LONG).show();
 
-        //Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        //emailIntent.setType("/*/");
-        //emailIntent.putExtra(Intent.EXTRA_EMAIL, "coffee@gmail.com");
-        //emailIntent.putExtra(Intent.EXTRA_TEXT, orderText);
-        //startActivity(emailIntent);
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("*/*");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "coffee@gmail.com");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, orderText);
+        startActivity(emailIntent);
 
     }
 
